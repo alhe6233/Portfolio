@@ -138,15 +138,15 @@
     color: rgba(124,58,237,0.5); letter-spacing: -4px;
     text-shadow: 0 0 60px rgba(124,58,237,0.4);
   }
-  
-  
+  .hero-socials { display: flex; gap: 1rem; margin-top: 3rem; }
+  .social-link {
     display: flex; align-items: center; justify-content: center;
     width: 38px; height: 38px;
     border: 1px solid var(--border); border-radius: 8px;
     color: var(--muted); text-decoration: none;
     font-size: 0.8rem; font-weight: 600; transition: all 0.2s;
   }
-  
+  .social-link:hover { border-color: var(--purple-light); color: var(--purple-light); background: rgba(124,58,237,0.1); }
 
   /* ── SECTIONS ── */
   section { padding: 100px 6%; }
@@ -169,14 +169,14 @@
 
   /* ── ABOUT ── */
   .about { background: var(--bg2); }
-  .about-text { max-width: 760px; margin-top: 2.5rem; }
+  .about-text { max-width: 760px; margin-top: 2.5rem; padding-left: 2rem; }
   .about-text p {
     color: var(--muted); line-height: 1.85; margin-bottom: 1.2rem; font-size: 0.97rem;
   }
   .about-text p strong { color: var(--text); }
 
   /* ── TECH STACK ── */
-  .tech-stack-block { margin-top: 3.5rem; }
+  .tech-stack-block { margin-top: 3.5rem; padding-left: 2rem; }
   .tech-stack-block .section-label { display: block; margin-bottom: 1.2rem; }
   .stack-pills { display: flex; flex-wrap: wrap; gap: 0.75rem; }
   .pill {
@@ -290,7 +290,7 @@
   @media (max-width: 768px) {
     .hero { flex-direction: column; text-align: center; gap: 3rem; padding-top: 100px; }
     .hero-btns { justify-content: center; }
-    
+    .hero-socials { justify-content: center; }
     .hero-blob { width: 200px; height: 240px; }
     .hero-initials { font-size: 4.5rem; }
     .about-grid { grid-template-columns: 1fr; gap: 3rem; }
