@@ -245,6 +245,133 @@
   .project-body p { color: var(--muted); font-size: 0.85rem; line-height: 1.65; }
   .project-link { display: inline-flex; align-items: center; gap: 0.3rem; margin-top: 1rem; font-size: 0.82rem; font-weight: 600; color: var(--purple-light); }
 
+  /* ── FEATURED PROJECT ── */
+.featured-project {
+  margin-bottom: 5rem;
+}
+
+.featured-project-card {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  min-height: 420px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.35s ease;
+}
+
+.featured-project-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--purple-light);
+  box-shadow: 0 18px 60px rgba(124, 58, 237, 0.22);
+}
+
+.featured-project-image {
+  position: relative;
+  min-height: 420px;
+  background:
+    linear-gradient(
+      rgba(20, 10, 45, 0.2),
+      rgba(20, 10, 45, 0.65)
+    ),
+    url("images/image.png") center/cover;
+}
+
+.featured-project-image::after {
+  content: 'VIEW CASE STUDY →';
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: white;
+  background: rgba(124, 58, 237, 0.35);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.featured-project-card:hover .featured-project-image::after {
+  opacity: 1;
+}
+
+.featured-project-content {
+  padding: 3.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.featured-badge {
+  display: inline-block;
+  width: fit-content;
+  padding: 0.4rem 0.8rem;
+  margin-bottom: 1.2rem;
+  border-radius: 100px;
+  background: rgba(124, 58, 237, 0.14);
+  border: 1px solid var(--border);
+  color: var(--purple-light);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.featured-project-content h3 {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  line-height: 1.15;
+  margin-bottom: 1rem;
+}
+
+.featured-project-content p {
+  color: var(--muted);
+  line-height: 1.8;
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+}
+
+.featured-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: 1.8rem;
+}
+
+.featured-meta span {
+  padding: 0.4rem 0.75rem;
+  border-radius: 6px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 0.75rem;
+}
+
+.featured-link {
+  color: var(--purple-light);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .featured-project-card {
+    grid-template-columns: 1fr;
+  }
+
+  .featured-project-image {
+    min-height: 260px;
+  }
+
+  .featured-project-content {
+    padding: 2rem;
+  }
+}
   /* ── CONTACT ── */
   .contact { text-align: center; }
   .contact-card {
@@ -345,6 +472,7 @@
 
 <div class="divider"></div>
 
+
 <!-- ABOUT -->
 <section class="about" id="about">
   <span class="section-label fade-in">About Me</span>
@@ -428,7 +556,52 @@
     <button class="tab" onclick="filterProjects('design', this)">UI/UX Design</button>
     <button class="tab" onclick="filterProjects('dev', this)">Web Development</button>
   </div>
+<!-- FEATURED PROJECT -->
+<div class="featured-project fade-in">
 
+  <a href="ai-homecare.html" class="featured-project-card">
+
+    <div class="featured-project-image">
+    </div>
+
+    <div class="featured-project-content">
+
+     <span class="featured-badge">
+  Featured Project · Group Work
+</span>
+
+<h3>
+  SelfGlow — AI-Powered
+  Skincare Consultation Platform
+</h3>
+
+<p>
+  A collaborative fullstack project developed by a team of six students.
+  SelfGlow combines an e-commerce platform for skincare products with
+  AI-powered consultation, skin analysis, personalized recommendations,
+  and a skin quiz.
+</p>
+      <div class="featured-meta">
+
+  <span>👥 6-Member Team</span>
+
+  <span>🤖 AI & RAG</span>
+
+  <span>🧴 Skincare E-Commerce</span>
+
+  <span>💻 Fullstack</span>
+
+</div>
+
+      <span class="featured-link">
+        View Project Case Study →
+      </span>
+
+    </div>
+
+  </a>
+
+</div>
   <div class="projects-grid" id="projects-grid">
 
     <!-- UI/UX Design Projects -->

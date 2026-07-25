@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SelfGlow – AI Skincare Consultation Platform</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg: #0d0d14;
+  --bg2: #13131f;
+  --card: #1a1a2e;
+  --purple: #7c3aed;
+  --purple-light: #a855f7;
+  --text: #f0edf8;
+  --muted: #9089a8;
+  --border: rgba(124, 58, 237, 0.2);
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  line-height: 1.6;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 6%;
+  background: rgba(13,13,20,0.85);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-logo {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.nav-logo span {
+  color: var(--purple-light);
+}
+
+.nav-link {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.nav-link:hover {
+  color: var(--text);
+}
+
+section {
+  padding: 100px 6%;
+}
+
+.project-hero {
+  min-height: 80vh;
+  padding-top: 160px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.back-link {
+  display: inline-block;
+  color: var(--muted);
+  text-decoration: none;
+  margin-bottom: 3rem;
+}
+
+.back-link:hover {
+  color: var(--purple-light);
+}
+
+.project-label {
+  display: block;
+  color: var(--purple-light);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+
+.project-hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.8rem, 6vw, 5.5rem);
+  line-height: 1.05;
+  letter-spacing: -2px;
+  max-width: 900px;
+  margin-bottom: 2rem;
+}
+
+.project-hero p {
+  color: var(--muted);
+  max-width: 650px;
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+.video-section {
+  background: var(--bg2);
+}
+
+.video-section h2 {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.video-wrapper {
+  max-width: 1100px;
+  margin: auto;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: #000;
+}
+
+.video-wrapper video {
+  width: 100%;
+  display: block;
+}
+
+.project-info {
+  max-width: 1000px;
+  margin: auto;
+}
+
+.project-info h2 {
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+}
+
+.project-info p {
+  color: var(--muted);
+  max-width: 750px;
+  line-height: 1.8;
+  margin-bottom: 3rem;
+}
+
+.screenshot-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.screenshot-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.screenshot-card img {
+  width: 100%;
+  display: block;
+}
+
+.screenshot-content {
+  padding: 1.5rem;
+}
+
+.screenshot-content h3 {
+  font-family: var(--font-display);
+  margin-bottom: 0.5rem;
+}
+
+.screenshot-content p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.tech-section {
+  background: var(--bg2);
+}
+
+.tech-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: 1.5rem;
+}
+
+.tech-list span {
+  padding: 0.6rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  color: var(--muted);
+  background: rgba(124,58,237,0.08);
+}
+
+footer {
+  padding: 2rem 6%;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+
+  .project-hero h1 {
+    font-size: 2.8rem;
+  }
+
+  .screenshot-grid {
+    grid-template-columns: 1fr;
+  }
+
+  section {
+    padding: 70px 5%;
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<nav>
+
+  <div class="nav-logo">
+    <span>A</span>laa
+  </div>
+
+  <a href="index.html" class="nav-link">
+    ← Back to Portfolio
+  </a>
+
+</nav>
+
+<section class="project-hero">
+
+  <a href="index.html" class="back-link">
+    ← Back to Projects
+  </a>
+
+<span class="project-label">
+
+  Featured Project · Group Work · Fullstack
+
+</span>
+
+<h1>
+
+  AI-Powered Personalized
+
+  Skincare Consultation Platform
+
+</h1>
+
+<p>
+
+  SelfGlow is an AI-powered skincare e-commerce platform that helps users
+
+  understand their skin and find suitable skincare products through
+
+  personalized digital consultation.
+
+</p>
+
+</section>
+
+<section class="video-section">
+
+  <h2>Project Presentation</h2>
+
+  <div class="video-wrapper">
+
+    <video controls playsinline>
+
+      <source src="videos/SelfGlow.mp4" type="video/mp4">
+
+      Your browser does not support the video tag.
+
+    </video>
+
+  </div>
+
+</section>
+
+<section>
+
+  <div class="project-info">
+
+ <h2>About the Project</h2>
+
+<p>
+  SelfGlow combines a traditional skincare e-commerce platform with
+  AI-powered consultation features. The goal is to make skincare shopping
+  more personal and accessible by helping users understand their skin,
+  identify suitable products, and receive recommendations based on their
+  individual needs.
+</p>
+
+<p>
+  The platform includes a product catalogue with filters, an AI-powered
+  RAG chatbot, AI-based photo skin analysis, a skin quiz, personalized
+  product recommendations, weather-based skincare tips, and a creative
+  AI-generated “Glow” preview.
+</p>
+
+   
+
+
+    
+
+
+      </div>
+
+
+</section>
+
+<section class="tech-section">
+
+  <div class="project-info">
+
+    <h2>Technologies & Tools</h2>
+
+    <div class="tech-list">
+
+      <span>React</span>
+<span>TypeScript</span>
+<span>Node.js</span>
+<span>Express</span>
+<span>PostgreSQL</span>
+<span>Prisma</span>
+<span>OpenAI API</span>
+<span>RAG</span>
+<span>Embeddings</span>
+<span>pgvector</span>
+<span>REST API</span>
+<span>Figma</span>
+
+    </div>
+
+  </div>
+
+</section>
+
+<footer>
+
+  © 2026 Alaa · Media Informatics · BHT Berlin
+
+</footer>
+
+</body>
+</html>
