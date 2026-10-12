@@ -384,6 +384,8 @@
   border-radius: 20px;
   overflow: hidden;
   position: relative;
+  text-decoration: none;
+  color: inherit;
   transition: all 0.35s ease;
 }
 .ios-project-card::before {
@@ -683,7 +685,7 @@
 
 <!-- iOS PROJECT: NOORIA -->
 <div class="ios-project fade-in">
-  <div class="ios-project-card">
+  <a href="nooria.html" class="ios-project-card">
 
     <div class="ios-project-content">
 
@@ -710,7 +712,7 @@
       </div>
 
       <span class="featured-link">
-        Watch the demo →
+        View Project Case Study →
       </span>
 
     </div>
@@ -718,14 +720,12 @@
     <div class="ios-project-media">
       <div class="phone-frame">
         <video class="phone-screen" id="nooria-video"
-               src="videos/nooria-demo.mp4"
-               poster="images/nooria-poster.png"
+               src="videos/nooria.mov"
                autoplay muted loop playsinline preload="metadata"></video>
-        <span class="sound-hint" id="sound-hint">Tap for sound 🔊</span>
       </div>
     </div>
 
-  </div>
+  </a>
 </div>
 
   <div class="projects-grid" id="projects-grid">
@@ -880,17 +880,6 @@
     document.querySelectorAll('.project-card').forEach(card => {
       const show = cat === 'all' || card.dataset.cat === cat;
       card.style.display = show ? 'block' : 'none';
-    });
-  }
-
-  // Nooria demo video: tap toggles sound
-  const noorVideo = document.getElementById('nooria-video');
-  const soundHint = document.getElementById('sound-hint');
-  if (noorVideo) {
-    noorVideo.addEventListener('click', () => {
-      noorVideo.muted = !noorVideo.muted;
-      if (noorVideo.paused) noorVideo.play();
-      soundHint.textContent = noorVideo.muted ? 'Tap for sound 🔊' : 'Tap to mute 🔇';
     });
   }
 
