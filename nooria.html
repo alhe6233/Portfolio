@@ -63,7 +63,7 @@
 
   /* HERO */
   .hero {
-    min-height: 100vh; padding-top: 130px;
+    min-height: auto; padding-top: 150px; padding-bottom: 70px;
     display: flex; align-items: center; position: relative; overflow: hidden;
   }
   .hero::before {
@@ -73,8 +73,7 @@
     pointer-events: none;
   }
   .hero .wrap {
-    display: grid; grid-template-columns: 1.1fr 1fr; gap: 3rem; align-items: center;
-    position: relative; z-index: 1;
+    display: block; position: relative; z-index: 1;
   }
   .badge {
     display: inline-block; width: fit-content;
@@ -214,15 +213,6 @@
         <span>🔥 Firebase</span>
       </div>
     </div>
-    <div class="phone-wrap">
-      <div class="phone-frame">
-        <video id="hero-video" poster="images/nooria.PNG" autoplay muted loop playsinline preload="auto">
-          <source src="videos/nooria.mp4" type="video/mp4">
-          <source src="videos/nooria.mov" type="video/quicktime">
-          <source src="videos/nooria.mov">
-        </video>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -308,17 +298,5 @@
   <p>Built with ❤ and lots of ☕</p>
 </footer>
 
-<script>
-  // Hero video in the phone: make sure it plays, tap toggles sound
-  const hv = document.getElementById('hero-video');
-  if (hv) {
-    hv.play().catch(() => {});
-    hv.style.cursor = 'pointer';
-    hv.addEventListener('click', () => {
-      hv.muted = !hv.muted;
-      if (hv.paused) hv.play().catch(() => {});
-    });
-  }
-</script>
 </body>
 </html>
