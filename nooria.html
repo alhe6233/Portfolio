@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nooria – iOS App | Alaa</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0d0d14;
+    --bg2: #13131f;
+    --card: #1a1a2e;
+    --purple: #7c3aed;
+    --purple-light: #a855f7;
+    --text: #f0edf8;
+    --muted: #9089a8;
+    --border: rgba(124, 58, 237, 0.2);
+    --font-display: 'Space Grotesk', sans-serif;
+    --font-body: 'Inter', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg); color: var(--text);
+    font-family: var(--font-body); line-height: 1.6; overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.2rem 6%;
+    background: rgba(13,13,20,0.85); backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo {
+    font-family: var(--font-display); font-size: 1.4rem; font-weight: 700;
+    color: var(--text); letter-spacing: -0.5px; text-decoration: none;
+  }
+  .nav-logo span { color: var(--purple-light); }
+  .nav-back {
+    color: var(--muted); text-decoration: none; font-size: 0.9rem; font-weight: 500;
+    transition: color 0.2s;
+  }
+  .nav-back:hover { color: var(--text); }
+
+  section { padding: 90px 6%; }
+  .wrap { max-width: 1100px; margin: 0 auto; }
+
+  .section-label {
+    display: inline-block; color: var(--purple-light);
+    font-size: 0.8rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase;
+    margin-bottom: 0.75rem;
+  }
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
+    font-weight: 700; letter-spacing: -1px; margin-bottom: 1rem;
+  }
+  .lead { color: var(--muted); max-width: 640px; line-height: 1.85; font-size: 1rem; }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh; padding-top: 130px;
+    display: flex; align-items: center; position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: ''; position: absolute; top: -100px; right: -100px;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(124,58,237,0.2) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  .hero .wrap {
+    display: grid; grid-template-columns: 1.1fr 1fr; gap: 3rem; align-items: center;
+    position: relative; z-index: 1;
+  }
+  .badge {
+    display: inline-block; width: fit-content;
+    padding: 0.4rem 0.9rem; margin-bottom: 1.2rem; border-radius: 100px;
+    background: rgba(124,58,237,0.14); border: 1px solid var(--border);
+    color: var(--purple-light); font-size: 0.7rem; font-weight: 700;
+    letter-spacing: 1.5px; text-transform: uppercase;
+  }
+  .hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+    line-height: 1.1; letter-spacing: -1.5px; margin-bottom: 1.2rem;
+  }
+  .hero h1 span { color: var(--purple-light); }
+  .meta { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.8rem; }
+  .meta span {
+    padding: 0.4rem 0.75rem; border-radius: 6px;
+    background: rgba(255,255,255,0.04); border: 1px solid var(--border);
+    color: var(--muted); font-size: 0.78rem;
+  }
+
+  /* PHONE */
+  .phone-wrap { display: flex; justify-content: center; }
+  .phone-frame {
+    position: relative; width: 300px; aspect-ratio: 9 / 19.5;
+    background: #000; border: 11px solid #0d0d14; border-radius: 50px;
+    box-shadow: 0 0 0 2px rgba(124,58,237,0.45), 0 30px 80px rgba(0,0,0,0.55), 0 0 100px rgba(124,58,237,0.28);
+    overflow: hidden;
+  }
+  .phone-frame::before {
+    content: ''; position: absolute; top: 10px; left: 50%; transform: translateX(-50%);
+    width: 92px; height: 26px; background: #000; border-radius: 20px; z-index: 3;
+    pointer-events: none;
+  }
+  .phone-frame video {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+    background: linear-gradient(160deg, #2a1860 0%, #0d0d14 100%);
+  }
+
+  /* ABOUT / FEATURES */
+  .alt { background: var(--bg2); }
+  .grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem; margin-top: 2.5rem;
+  }
+  .card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 16px; padding: 1.8rem; transition: all 0.3s;
+  }
+  .card:hover { transform: translateY(-4px); border-color: rgba(124,58,237,0.45); box-shadow: 0 8px 40px rgba(124,58,237,0.15); }
+  .card .icon {
+    width: 46px; height: 46px; border-radius: 12px; margin-bottom: 1rem;
+    background: rgba(124,58,237,0.15); border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center; font-size: 1.3rem;
+  }
+  .card h3 { font-family: var(--font-display); font-size: 1.05rem; margin-bottom: 0.5rem; }
+  .card p { color: var(--muted); font-size: 0.88rem; line-height: 1.7; }
+
+  /* RANKS */
+  .ranks { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 2rem; }
+  .rank {
+    padding: 0.6rem 1.1rem; border-radius: 12px;
+    background: var(--card); border: 1px solid var(--border);
+    font-size: 0.85rem; font-weight: 600;
+  }
+  .rank small { display: block; color: var(--muted); font-weight: 400; font-size: 0.72rem; }
+
+  /* TECH */
+  .stack-pills { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 2rem; }
+  .pill {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    background: rgba(124,58,237,0.08); border: 1px solid var(--border);
+    padding: 0.55rem 1.2rem; border-radius: 100px;
+    font-size: 0.88rem; font-weight: 500; transition: all 0.2s;
+  }
+  .pill:hover { background: rgba(124,58,237,0.18); border-color: var(--purple-light); }
+  .pill i { width: 6px; height: 6px; border-radius: 50%; background: var(--purple-light); }
+
+  /* VIDEO */
+  .video-box { margin-top: 2.5rem; display: flex; justify-content: center; }
+  .video-box video {
+    width: 100%; max-width: 360px; border-radius: 28px;
+    border: 1px solid var(--border);
+    box-shadow: 0 20px 70px rgba(124,58,237,0.25);
+    background: #000;
+  }
+
+  .back-btn {
+    display: inline-flex; align-items: center; gap: 0.5rem; margin-top: 3rem;
+    background: var(--purple); color: #fff; text-decoration: none;
+    padding: 0.85rem 2rem; border-radius: 8px; font-weight: 600; font-size: 0.95rem;
+    box-shadow: 0 4px 24px rgba(124,58,237,0.35); transition: all 0.2s;
+  }
+  .back-btn:hover { background: var(--purple-light); transform: translateY(-2px); }
+
+  footer {
+    padding: 2rem 6%; border-top: 1px solid var(--border);
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem;
+  }
+  footer p { color: var(--muted); font-size: 0.85rem; }
+  footer p span { color: var(--purple-light); }
+
+  @media (max-width: 768px) {
+    nav { padding: 1rem 4%; }
+    section { padding: 70px 5%; }
+    .hero .wrap { grid-template-columns: 1fr; text-align: center; }
+    .badge { margin-left: auto; margin-right: auto; }
+    .meta { justify-content: center; }
+    .lead { margin: 0 auto; }
+    .phone-frame { width: 240px; }
+    .phone-wrap { order: -1; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo"><span>A</span>laa</a>
+  <a href="index.html#projects" class="nav-back">← Back to Projects</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <span class="badge">iOS App · Solo Project</span>
+      <h1>Nooria — <span>Community Q&amp;A</span> App for iOS</h1>
+      <p class="lead">
+        Wissen. Teilen. Gemeinsam wachsen. Nooria is a mobile app where people
+        ask questions anonymously, get honest answers from the community and
+        grow through a rank system.
+      </p>
+      <div class="meta">
+        <span>📱 iOS App</span>
+        <span>💬 Community Q&amp;A</span>
+        <span>🏅 Rank System</span>
+        <span>🔥 Firebase</span>
+      </div>
+    </div>
+    <div class="phone-wrap">
+      <div class="phone-frame">
+        <video id="hero-video" poster="images/nooria.PNG" autoplay muted loop playsinline preload="auto">
+          <source src="videos/nooria.mp4" type="video/mp4">
+          <source src="videos/nooria.mov" type="video/quicktime">
+          <source src="videos/nooria.mov">
+        </video>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="alt">
+  <div class="wrap">
+    <span class="section-label">About the App</span>
+    <h2 class="section-title">What is Nooria?</h2>
+    <p class="lead">
+      Nooria brings people together around shared knowledge. Users can search
+      existing questions, ask their own — optionally anonymously — and answer
+      others. Every contribution earns points, so helping the community is
+      rewarded with higher ranks.
+    </p>
+
+    <div class="grid">
+      <div class="card">
+        <div class="icon">❓</div>
+        <h3>Ask &amp; Answer</h3>
+        <p>Post questions, search through existing ones and get answers from the community.</p>
+      </div>
+      <div class="card">
+        <div class="icon">🕶️</div>
+        <h3>Anonymous &amp; Honest</h3>
+        <p>Questions can be asked anonymously, so people feel free to ask what really matters to them.</p>
+      </div>
+      <div class="card">
+        <div class="icon">🏆</div>
+        <h3>Ranks &amp; Progress</h3>
+        <p>Points for every contribution unlock ranks from Bronze up to Crown.</p>
+      </div>
+      <div class="card">
+        <div class="icon">🎥</div>
+        <h3>Video Content</h3>
+        <p>Videos can be uploaded and shared within the community.</p>
+      </div>
+    </div>
+
+    <div class="ranks">
+      <div class="rank">Bronze<small>from 0</small></div>
+      <div class="rank">Silver<small>from 1,000</small></div>
+      <div class="rank">Gold<small>from 5,000</small></div>
+      <div class="rank">Platinum<small>from 10,000</small></div>
+      <div class="rank">Diamond<small>from 20,000</small></div>
+      <div class="rank">Crown<small>from 30,000</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- TECH -->
+<section>
+  <div class="wrap">
+    <span class="section-label">Tools &amp; Tech</span>
+    <h2 class="section-title">Built With</h2>
+    <p class="lead">The tools I used to design, build and ship the app.</p>
+    <div class="stack-pills">
+      <span class="pill"><i></i>iOS</span>
+      <span class="pill"><i></i>Firebase</span>
+      <span class="pill"><i></i>EmailJS</span>
+      <span class="pill"><i></i>Figma</span>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEO -->
+<section class="alt">
+  <div class="wrap" style="text-align:center;">
+    <span class="section-label">Demo</span>
+    <h2 class="section-title">See Nooria in Action</h2>
+    <div class="video-box">
+      <video poster="images/nooria.PNG" controls playsinline preload="metadata">
+        <source src="videos/nooria.mp4" type="video/mp4">
+        <source src="videos/nooria.mov" type="video/quicktime">
+        <source src="videos/nooria.mov">
+      </video>
+    </div>
+    <a href="index.html#projects" class="back-btn">← Back to Projects</a>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 <span>Alaa</span> · Media Informatics · BHT Berlin</p>
+  <p>Built with ❤ and lots of ☕</p>
+</footer>
+
+<script>
+  // Hero video in the phone: make sure it plays, tap toggles sound
+  const hv = document.getElementById('hero-video');
+  if (hv) {
+    hv.play().catch(() => {});
+    hv.style.cursor = 'pointer';
+    hv.addEventListener('click', () => {
+      hv.muted = !hv.muted;
+      if (hv.paused) hv.play().catch(() => {});
+    });
+  }
+</script>
+</body>
+</html>

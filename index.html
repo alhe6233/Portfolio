@@ -372,6 +372,104 @@
     padding: 2rem;
   }
 }
+/* ── NOORIA (iOS PROJECT) ── */
+.ios-project { margin-bottom: 5rem; }
+
+.ios-project-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 560px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.35s ease;
+}
+.ios-project-card::before {
+  content: '';
+  position: absolute; top: -120px; right: -80px;
+  width: 520px; height: 520px;
+  background: radial-gradient(circle, rgba(124,58,237,0.22) 0%, transparent 65%);
+  pointer-events: none;
+}
+.ios-project-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--purple-light);
+  box-shadow: 0 18px 60px rgba(124, 58, 237, 0.22);
+}
+
+.ios-project-content {
+  padding: 3.5rem;
+  display: flex; flex-direction: column; justify-content: center;
+  position: relative; z-index: 1;
+}
+.ios-project-content h3 {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  line-height: 1.15; margin-bottom: 1rem;
+}
+.ios-project-content p {
+  color: var(--muted); line-height: 1.8; font-size: 0.95rem; margin-bottom: 1.5rem;
+}
+
+.ios-project-media {
+  display: flex; align-items: center; justify-content: center;
+  padding: 2.5rem; position: relative; z-index: 1;
+}
+.phone-frame {
+  position: relative;
+  width: 270px; aspect-ratio: 9 / 19.5;
+  background: #000;
+  border: 10px solid #0d0d14;
+  border-radius: 46px;
+  box-shadow: 0 0 0 2px rgba(124,58,237,0.45), 0 30px 80px rgba(0,0,0,0.55), 0 0 90px rgba(124,58,237,0.25);
+  overflow: hidden;
+}
+.phone-frame::before {
+  content: '';
+  position: absolute; top: 9px; left: 50%; transform: translateX(-50%);
+  width: 84px; height: 24px; background: #000; border-radius: 20px; z-index: 3;
+}
+.phone-screen {
+  width: 100%; height: 100%; object-fit: cover; display: block; cursor: pointer;
+  background: linear-gradient(160deg, #2a1860 0%, #0d0d14 100%);
+}
+.sound-hint {
+  position: absolute; bottom: 14px; left: 50%; transform: translateX(-50%);
+  background: rgba(13,13,20,0.7); backdrop-filter: blur(8px);
+  border: 1px solid var(--border); border-radius: 100px;
+  padding: 0.3rem 0.8rem; font-size: 0.68rem; font-weight: 600; color: var(--text);
+  pointer-events: none; z-index: 3; white-space: nowrap;
+}
+
+.ios-project-card { grid-template-columns: 1fr 1.2fr; min-height: 420px; }
+
+.ios-project-image {
+  position: relative;
+  min-height: 420px;
+  background:
+    linear-gradient(rgba(20, 10, 45, 0.2), rgba(20, 10, 45, 0.65)),
+    url("images/nooria.PNG") center/cover;
+}
+.ios-project-image::after {
+  content: 'VIEW CASE STUDY →';
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.85rem; font-weight: 700; letter-spacing: 2px; color: white;
+  background: rgba(124, 58, 237, 0.35);
+  opacity: 0; transition: opacity 0.3s ease;
+}
+.ios-project-card:hover .ios-project-image::after { opacity: 1; }
+
+@media (max-width: 768px) {
+  .ios-project-card { grid-template-columns: 1fr; }
+  .ios-project-image { order: -1; min-height: 260px; }
+  .ios-project-content { padding: 2rem; }
+}
+
   /* ── CONTACT ── */
   .contact { text-align: center; }
   .contact-card {
@@ -602,10 +700,50 @@
   </a>
 
 </div>
+
+<!-- iOS PROJECT: NOORIA -->
+<div class="ios-project fade-in">
+  <a href="nooria.html" class="ios-project-card">
+
+    <div class="ios-project-content">
+
+      <span class="featured-badge">
+        iOS App · Solo Project
+      </span>
+
+      <h3>
+        Nooria — Community
+        Q&amp;A App for iOS
+      </h3>
+
+      <p>
+        Nooria is a mobile app for sharing knowledge: ask questions anonymously,
+        get honest answers from the community, and grow through a rank system
+        from Bronze to Crown. Designed and built by me — from the UI to the app itself.
+      </p>
+
+      <div class="featured-meta">
+        <span>📱 iOS App</span>
+        <span>💬 Community Q&amp;A</span>
+        <span>🏅 Rank System</span>
+        <span>🔥 Firebase</span>
+      </div>
+
+      <span class="featured-link">
+        View Project Case Study →
+      </span>
+
+    </div>
+
+    <div class="ios-project-image"></div>
+
+  </a>
+</div>
+
   <div class="projects-grid" id="projects-grid">
 
     <!-- UI/UX Design Projects -->
-    <a href="https://www.figma.com/proto/bPQpPGsV5z3Z8MOYGtRwci/Coffe-webseite?node-id=3-3&t=Jr6hI2FLUt8mkbJE-1&starting-point-node-id=3%3A3" target="_blank" class="project-card fade-in" data-cat="design">
+    <a href="https://www.figma.com/design/bPQpPGsV5z3Z8MOYGtRwci/Coffe-webseite?node-id=0-1&t=M55sP8wmj5zdTL06-1" target="_blank" class="project-card fade-in" data-cat="design">
       <div class="project-thumb t1">
         <div class="thumb-label">
           <div class="thumb-emoji">☕</div>
@@ -635,7 +773,7 @@
       </div>
     </a>
 
-    <a href="https://www.figma.com/proto/2j2wOTug5ztSxLmqAu4C17/BHT-App?node-id=1-1666&t=ldp9mVM7G98YMiCw-1&starting-point-node-id=1%3A1666" target="_blank" class="project-card fade-in" data-cat="design">
+    <a href="https://www.figma.com/design/mxOWnrWlf4EKjtpGhqSitX/Almila-BHT?node-id=316-2414&t=mp2pS8rCXCzWfBbX-1" target="_blank" class="project-card fade-in" data-cat="design">
       <div class="project-thumb t4">
         <div class="thumb-label">
           <div class="thumb-emoji">🎓</div>
@@ -681,51 +819,6 @@
     </a>
 
     <!-- Dev Projects -->
-    <a href="https://funny-syrniki-899f62.netlify.app" target="_blank" class="project-card fade-in" data-cat="dev">
-      <div class="project-thumb t3">
-        <div class="thumb-label">
-          <div class="thumb-emoji">🍰</div>
-          <div class="thumb-text">HTML · CSS · JS</div>
-        </div>
-      </div>
-      <div class="project-body">
-        <span class="project-tag">Web Development</span>
-        <h3>Dessert Landing Page</h3>
-        <p>Responsive landing page with a hero section, product overview, and about section. Built with HTML, CSS & JavaScript.</p>
-        <span class="project-link">View Live →</span>
-      </div>
-    </a>
-
-    <a href="https://alhe6233.github.io/Premium-Dental-Clinic-Modern-Website/" target="_blank" class="project-card fade-in" data-cat="dev">
-      <div class="project-thumb t4">
-        <div class="thumb-label">
-          <div class="thumb-emoji">🦷</div>
-          <div class="thumb-text">HTML · CSS · JS</div>
-        </div>
-      </div>
-      <div class="project-body">
-        <span class="project-tag">Web Development</span>
-        <h3>Premium Dental Clinic</h3>
-        <p>Modern website for a dental clinic — clean design, service overview, and fully responsive layout.</p>
-        <span class="project-link">View Live →</span>
-      </div>
-    </a>
-
-    <a href="https://alhe6233.github.io/CafeShop/" target="_blank" class="project-card fade-in" data-cat="dev">
-      <div class="project-thumb t5">
-        <div class="thumb-label">
-          <div class="thumb-emoji">☕</div>
-          <div class="thumb-text">HTML · CSS · JS</div>
-        </div>
-      </div>
-      <div class="project-body">
-        <span class="project-tag">Web Development</span>
-        <h3>Cafe Shop Website</h3>
-        <p>Café website with a menu overview, modern design, and a mobile-optimized layout.</p>
-        <span class="project-link">View Live →</span>
-      </div>
-    </a>
-
     <a href="https://alhe6233.github.io/Agency/" target="_blank" class="project-card fade-in" data-cat="dev">
       <div class="project-thumb t6">
         <div class="thumb-label">
